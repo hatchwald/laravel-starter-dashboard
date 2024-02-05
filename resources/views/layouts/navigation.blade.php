@@ -110,7 +110,7 @@
                 {{ Auth::user()->name }}
             </span>
             <span>
-                SUPERADMIN
+                {{ isset(Auth::user()->roles[0]) ? Auth::user()->roles[0]->name : '' }}
             </span>
 
         </div>
