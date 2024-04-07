@@ -16,10 +16,12 @@
             <i class="fas fa-book mr-3"></i>
             Post
         </a>
-        <a href="/dashboard/roles/" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-            <i class="fas fa-user-tag mr-3"></i>
-            Role
-        </a>
+        @if (auth()->user()->can('role-view'))
+            <a href="/dashboard/roles/" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-user-tag mr-3"></i>
+                Role
+            </a>
+        @endif
 
     </nav>
 
