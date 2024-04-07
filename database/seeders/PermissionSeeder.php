@@ -26,6 +26,8 @@ class PermissionSeeder extends Seeder
             'post-create',
             'post-edit',
             'post-delete',
+            'rate-view',
+            'rate-refresh'
         ];
 
         foreach ($permission as $value) {
