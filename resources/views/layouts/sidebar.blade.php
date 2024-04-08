@@ -22,6 +22,10 @@
                 Role
             </a>
         @endif
+        <a href="/dashboard/rates/" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <i class="fas fa-star mr-3"></i>
+            Rate
+        </a>
 
     </nav>
 
