@@ -81,7 +81,7 @@ class RateController extends Controller
     public function show_rate()
     {
         $currencies = Cache::remember('currency_rates', now()->addDay(), function () {
-            $data = new CurrencyApiClient('cur_live_Umhv9b3Im2fY5ElDJGGgcG8YhMG6f8gTHlBKkxBS');
+            $data = new CurrencyApiClient(env('CURRENCYAPITOKEN'));
             return $data->latest();
         });
 

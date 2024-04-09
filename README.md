@@ -7,17 +7,46 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Deploying with Docker or Sail
+
+> Laravel Sail
+
+-   check the `.env.example` for example `.env`
+-   if using laravel sail you can install composer first by `composer install`
+-   then run `./vendor/bin/sail up` or `./vendor/bin/sail up -d` to start on background
+-   after that run `php artisan migrate` to migrate database
+-   then run `php artisan db:seed` to run seeder data sampling like roles,permission, and account user
+-   after that run `npm install` to install package nodejs
+-   after that run `npm run build` to build latest css or js ( since i use tailwindcss so need build first ) or you can run `npm run dev` to watch your update on developing
+-   the default port is running on 8000
+
+> Docker
+
+-   check `.env.example` for `.env`
+-   for docker you can just run `docker-compose up -d` since we already have file `docker-compose.yml`
+-   or if you want edit `Dockerfile` it is on folder `docker/8.3`
+-   after finish `docker-compose up -d` run `php artisan db:migrate` to migrate database
+-   then run `php artisan db:seed` to run seeder data sampling like roles,permission, and account user
+-   after that run `npm install` to install package nodejs
+-   after that run `npm run build` to build latest css or js ( since i use tailwindcss so need build first ) or you can run `npm run dev` to watch your update on developing
+-   the default port is running on 8000
+
+> Default account Seeder
+
+-   for Administrator the email is `admin@mail.com` and the password is `password123`
+-   and for regular user the email is `user@mail.com` and the password is `password123`
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   [Simple, fast routing engine](https://laravel.com/docs/routing).
+-   [Powerful dependency injection container](https://laravel.com/docs/container).
+-   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+-   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+-   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+-   [Robust background job processing](https://laravel.com/docs/queues).
+-   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
@@ -35,19 +64,19 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 
 ### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+-   **[Vehikl](https://vehikl.com/)**
+-   **[Tighten Co.](https://tighten.co)**
+-   **[WebReinvent](https://webreinvent.com/)**
+-   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+-   **[64 Robots](https://64robots.com)**
+-   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+-   **[Cyber-Duck](https://cyber-duck.co.uk)**
+-   **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+-   **[Jump24](https://jump24.co.uk)**
+-   **[Redberry](https://redberry.international/laravel/)**
+-   **[Active Logic](https://activelogic.com)**
+-   **[byte5](https://byte5.de)**
+-   **[OP.GG](https://op.gg)**
 
 ## Contributing
 
