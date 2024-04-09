@@ -68,9 +68,14 @@ class RateController extends Controller
 
     public function refresh()
     {
-        Cache::forget('currency_rates');
-        $data = $this->show_rate();
-        return $data;
+        $user = Auth()->user()->hasRole('SUPERADMIN');
+        if ($user) {
+            Cache::forget('currency_rates');
+            $data = $this->show_rate();
+            return $data;
+        } else {
+            return response()->json(['message' => 'your role is forbidden to refresh data'], 403);
+        }
     }
 
     public function show_rate()

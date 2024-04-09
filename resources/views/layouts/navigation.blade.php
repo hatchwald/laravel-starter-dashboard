@@ -118,7 +118,7 @@
             <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400">
         </button>
         <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
-        <div x-show="isOpen" class="absolute w-32 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 mt-16 dark:text-gray-200">
+        <div x-show="isOpen" class="z-50 absolute w-32 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 mt-16 dark:text-gray-200">
             <a href="#" class="block px-4 py-2 account-link hover:text-white">Account</a>
             <a href="#" class="block px-4 py-2 account-link hover:text-white">Support</a>
                 <form method="POST" action="{{ route('logout') }}">

@@ -92,7 +92,30 @@
     }
     const datatable_rate = document.getElementById('datatable-search')
     if (!!datatable_rate) {
-        new DataTable('#datatable-search')
+        const dt_rate = new DataTable('#datatable-search')
+        function refreshRate() {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST','/dashboard/rates/refres_rate',true);
+            xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
+            xhr.onload = function(){
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    const data = JSON.parse(xhr.responseText);
+                    dt_rate.clear().draw()
+                    let number = 0;
+                    for (const currencyCode in data) {
+                        number++;
+                        if (data.hasOwnProperty(currencyCode)) {
+                            const currency = data[currencyCode];
+                            dt_rate.row.add([number,currency.code, currency.value]).draw();
+                        }
+                    }
+                    alert("data Refreshed")
+                }else{
+                    alert(`Request failed with status  ${xhr.status}`);
+                }
+            }
+            xhr.send();
+        }
         // const xhr = new XMLHttpRequest();
 
         // xhr.open('GET', '/dashboard/rates/show_rate', true);

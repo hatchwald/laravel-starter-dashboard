@@ -35,6 +35,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::resource('/roles', RolesController::class);
     Route::resource('/rates', RateController::class)->only('index');
     Route::get('/rates/show_rate', [RateController::class, 'show_rate']);
+    Route::post('rates/refres_rate', [RateController::class, 'refresh']);
 });
 
 require __DIR__ . '/auth.php';
