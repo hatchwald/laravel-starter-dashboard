@@ -90,5 +90,44 @@
             }
         });
     }
-    new DataTable('#datatable-search');
+    const datatable_rate = document.getElementById('datatable-search')
+    if (!!datatable_rate) {
+        new DataTable('#datatable-search')
+        // const xhr = new XMLHttpRequest();
+
+        // xhr.open('GET', '/dashboard/rates/show_rate', true);
+
+        // xhr.onload = function() {
+        //     if (xhr.status >= 200 && xhr.status < 300) {
+        //         const data = JSON.parse(xhr.responseText);
+        //         new DataTable('#datatable-search',{
+        //             data: Object.values(data),
+        //             columns:[
+        //                 {
+        //                     data:null,
+        //                     render:function(data,type,row,meta){
+        //                         return meta.row+1
+        //                     }
+        //                  },
+        //                 {data:'code'},
+        //                 {data:'value'}
+        //             ],
+        //             columnDefs: [
+        //                 {
+        //                     targets: -1,
+        //                     className: 'dt-left'
+        //                 }
+        //             ]
+        //         });
+
+
+        //     } else {
+        //         console.error('Request failed with status ' + xhr.status);
+        //     }
+        // };
+
+        // // Send the request
+        // xhr.send();
+
+    }
 </script>

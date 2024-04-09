@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Rate;
 use Illuminate\Http\Request;
+use CurrencyApi\CurrencyApi\CurrencyApiClient;
+use Illuminate\Support\Facades\Cache;
 
 class RateController extends Controller
 {
@@ -12,7 +14,8 @@ class RateController extends Controller
      */
     public function index()
     {
-        return view('rate.index');
+        $data = $this->show_rate();
+        return view('rate.index', ['currency' => $data])->with('i');
     }
 
     /**
@@ -61,5 +64,22 @@ class RateController extends Controller
     public function destroy(Rate $rate)
     {
         //
+    }
+
+    public function refresh()
+    {
+        Cache::forget('currency_rates');
+        $data = $this->show_rate();
+        return $data;
+    }
+
+    public function show_rate()
+    {
+        $currencies = Cache::remember('currency_rates', now()->addDay(), function () {
+            $data = new CurrencyApiClient('cur_live_Umhv9b3Im2fY5ElDJGGgcG8YhMG6f8gTHlBKkxBS');
+            return $data->latest();
+        });
+
+        return $currencies['data'];
     }
 }

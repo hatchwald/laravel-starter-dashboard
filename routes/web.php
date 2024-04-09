@@ -33,7 +33,8 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::resource('posts', PostContoller::class);
     Route::resource('/users', UserController::class);
     Route::resource('/roles', RolesController::class);
-    Route::resource('/rates', RateController::class);
+    Route::resource('/rates', RateController::class)->only('index');
+    Route::get('/rates/show_rate', [RateController::class, 'show_rate']);
 });
 
 require __DIR__ . '/auth.php';
